@@ -3,45 +3,45 @@
       "balance": "$3,946.45",
       "picture": "http://placehold.it/32x32",
       "age": 23,
-      "name": "Bird Ramsey",
+      "name": "Harsh Vardhan",
       "gender": "male",
-      "company": "NIMON",
-      "email": "birdramsey@abc.com"
+      "company": "Capgemini",
+      "email": "harsh@gmail.com"
     },
     {
       "balance": "$2,499.49",
       "picture": "http://placehold.it/32x32",
       "age": 31,
-      "name": "Lillian Burgess",
+      "name": "Shipra Tiwari",
       "gender": "female",
-      "company": "LUXURIA",
-      "email": "lillianburgess@xyz.com"
+      "company": "Raj System",
+      "email": "shipra@gmail.com"
     },
     {
       "balance": "$2,820.18",
       "picture": "http://placehold.it/32x32",
       "age": 34,
-      "name": "Kristie Cole",
-      "gender": "female",
-      "company": "QUADEEBO",
-      "email": "kristiecole@lkn.com"
+      "name": "Atul Pandey",
+      "gender": "male",
+      "company": "TCS",
+      "email": "atul@tcs.com"
     },
     {
       "balance": "$3,277.32",
       "picture": "http://placehold.it/32x32",
       "age": 30,
-      "name": "Leonor Cross",
-      "gender": "female",
-      "company": "GRONK",
-      "email": "leonorcross@mlo.com"
+      "name": "Anwar",
+      "gender": "male",
+      "company": "Google",
+      "email": "anwar@google.com"
     },
     {
       "balance": "$1,972.47",
       "picture": "http://placehold.it/32x32",
-      "age": 28,
-      "name": "Marsh Mccall",
+      "age": 30,
+      "name": "Pramod",
       "gender": "male",
       "company": "ULTRIMAX",
-      "email": "marshmccall@m;p.com"
+      "email": "pramod@gmail.com"
     }
   ]
