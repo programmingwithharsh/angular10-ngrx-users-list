@@ -17,7 +17,7 @@ export class UserService {
   getUsers(): Observable<IUser[]> {
     return this.http.get<IUser[]>(this.userUrl)
       .pipe(
-        tap(data => console.log('All: ' + JSON.stringify(data))),
+      //  tap(data => console.log('All: ' + JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
