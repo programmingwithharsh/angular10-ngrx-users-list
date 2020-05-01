@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { IUser } from '../user';
 import { Store, select } from '@ngrx/store';
 import * as UserActions from '../user.actions';
