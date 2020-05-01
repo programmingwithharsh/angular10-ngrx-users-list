@@ -13,9 +13,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './user.effects';
 import { FormsModule } from '@angular/forms';
 import { UsersFilterPipe } from './users-filter.pipe';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, UsersComponent, UsersFilterPipe],
+  declarations: [AppComponent, WelcomeComponent, UsersComponent, UsersFilterPipe, RegisterComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, StoreModule.forRoot(reducers, {
     metaReducers,
     runtimeChecks: {
