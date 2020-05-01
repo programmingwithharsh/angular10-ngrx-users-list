@@ -7,7 +7,6 @@ export class UsersFilterPipe implements PipeTransform {
 
   transform(value: any, ...args: any[]): any {
     const filterBy = args[0].toLocaleLowerCase();
-    console.log(filterBy);
     return value.filter((item) => item.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 

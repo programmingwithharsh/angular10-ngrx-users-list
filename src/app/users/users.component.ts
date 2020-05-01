@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { IUser } from '../user';
-import { UserService } from '../user.service';
 import { Store, select } from '@ngrx/store';
 import * as UserActions from '../user.actions';
 import * as fromUser from '../user.selectors';
@@ -16,8 +15,8 @@ export class UsersComponent implements OnInit {
   errorMessage = '';
   users: IUser[] = [];
   userFilter = "";
-
-  constructor(private userService: UserService, private store: Store) { }
+  
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
 
@@ -34,15 +33,6 @@ export class UsersComponent implements OnInit {
         this.errorMessage = err;
       }
     )
-
-/*
-    this.userService.getUsers().subscribe({
-      next: users => {
-        this.users = users;
-      },
-      error: err => this.errorMessage = err
-    });
-*/
 
   }
 }
