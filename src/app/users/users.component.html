@@ -30,14 +30,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor='let user of users'>
+            <tr *ngFor='let user of users | usersFilter:userFilter '>
               <td>
                 <img [src]='user.picture'>
               </td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.gender }}</td>
-                <td>{{ user.company}}</td>
-                <td>{{ user.email }}</td>
+                <td>{{ user.company | lowercase}}</td>
+                <td>{{ user.email | uppercase}}</td>
                 <td>{{ user.age }}</td>
             </tr>
           </tbody>

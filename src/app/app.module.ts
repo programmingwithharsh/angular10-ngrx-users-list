@@ -12,9 +12,10 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './user.effects';
 import { FormsModule } from '@angular/forms';
+import { UsersFilterPipe } from './users-filter.pipe';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, UsersComponent],
+  declarations: [AppComponent, WelcomeComponent, UsersComponent, UsersFilterPipe],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, StoreModule.forRoot(reducers, {
     metaReducers,
     runtimeChecks: {
