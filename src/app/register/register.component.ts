@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Register } from '../register';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,23 +10,32 @@ export class RegisterComponent implements OnInit {
 
   register = new Register();
   registerForm: FormGroup;
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     console.log(this.register);
-    this.registerForm = new FormGroup(
+    this.registerForm = this.fb.group(
       {
-        username: new FormControl(),
-        gender: new FormControl(),
-        company: new FormControl(),
-        email: new FormControl(),
-        age: new FormControl()
+        username: ['Harsh'],
+        gender: '',
+        company: '',
+        email: '',
+        age: ''
       }
     );
   }
 
   save() {
     console.log(this.registerForm);
+  }
+
+  testData() {
+    this.registerForm.patchValue({
+      username: 'Harsh',
+      gender: 'male',
+      email: 'harshtiwari343@gmail.com',
+      age: '32'
+    })
   }
 
 }
