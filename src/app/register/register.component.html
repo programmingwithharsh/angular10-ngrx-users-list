@@ -1,133 +1,158 @@
 <div class="card">
-    <div class="card-header">
-        User Registration Form
+  <div class="card-header">
+    User Registration Form
+  </div>
+  <div class="card-body">
+    <form [formGroup]="registerForm" (ngSubmit)="save()">
+      <div class="form-group row mb-2">
+        <label for="username" class="col-md-2 col-form-label"
+          >Enter Your Name</label
+        >
+        <div class="col-md-8">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="username"
+            [ngClass]="{
+              'is-invalid':
+                (registerForm.get('username').touched ||
+                  registerForm.get('username').dirty) &&
+                !registerForm.get('username').valid
+            }"
+          />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('username').errors?.required">
+              Please enter username
+            </span>
+            <span *ngIf="registerForm.get('username').errors?.minlength">
+              Username must be longer than 3 characters
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label for="gender" class="col-md-2 col-form-label pt-0">Gender</label>
+        <div class="col-md-8">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input
+                type="radio"
+                class="form-check-input"
+                value="male"
+                formControlName="gender"
+              />
+              Male
+            </label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input
+                type="radio"
+                class="form-check-input"
+                value="female"
+                formControlName="gender"
+              />
+              Female
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label for="company" class="col-md-2 col-form-label"
+          >Enter Your Company</label
+        >
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="company" />
+        </div>
+      </div>
+
+      <div formGroupName="emailGroup">
+      <div class="form-group row mb-2">
+        <label for="email" class="col-md-2 col-form-label"
+          >Enter Your Email</label
+        >
+        <div class="col-md-8">
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            [ngClass]="{
+              'is-invalid':registerForm.get('emailGroup').errors ||
+                (registerForm.get('emailGroup.email').touched ||
+                  registerForm.get('emailGroup.email').dirty) &&
+                !registerForm.get('emailGroup.email').valid
+            }"
+          />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('emailGroup.email').errors?.required">
+              Please enter email address
+            </span>
+            <span *ngIf="registerForm.get('emailGroup.email').errors?.email">
+              Please enter a valid email address
+            </span>
+          </span>
+
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label for="confirmEmail" class="col-md-2 col-form-label"
+          >Confirm Email</label
+        >
+        <div class="col-md-8">
+          <input type="email" class="form-control" formControlName="confirmEmail" [ngClass]="{
+            'is-invalid': registerForm.get('emailGroup').errors ||
+              (registerForm.get('emailGroup.confirmEmail').touched ||
+                registerForm.get('emailGroup.confirmEmail').dirty) &&
+              !registerForm.get('emailGroup.confirmEmail').valid
+          }"
+        />
+
+        <span class="invalid-feedback">
+          <span *ngIf="registerForm.get('emailGroup.confirmEmail').errors?.required">
+            Please confirm your email address.
+          </span>
+          <span *ngIf="registerForm.get('emailGroup').errors?.match">
+            The confirmation does not match the email address
+          </span>
+        </span>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-        <form [formGroup]="registerForm" (ngSubmit)="save()">
 
-            <div class="form-group row mb-2">
-                <label for="username" class="col-md-2 col-form-label">Enter Your
-                    Name</label>
-                <div class="col-md-8">
-                    <input
-                        type="text"
-                        class="form-control"
-                        required
-                        minlength="3"
-                        formControlName="username"
-                        [ngClass]="{'is-invalid':
-                            (registerForm.get('username').touched || registerForm.get('username').dirty) && !registerForm.get('username').valid
-                        }"
-                        />
+      <div class="form-group row mb-2">
+        <label for="age" class="col-md-2 col-form-label">Enter Your Age</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="age" />
+        </div>
+      </div>
 
-                        <span class="invalid-feedback">
-                            <span *ngIf="registerForm.get('username').errors?.required">
-                                    Please enter username
-                            </span>
-                            <span *ngIf="registerForm.get('username').errors?.minlength">
-                                Username must be longer than 3 characters
-                        </span>
-                        </span>
-                </div>
-            </div>
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-8">
+          <button
+            class="btn btn-primary mr-3"
+            type="submit"
+            [disabled]="!registerForm.valid"
+          >
+            Save
+          </button>
 
-            <div class="form-group row mb-2">
-                <label for="gender" class="col-md-2 col-form-label pt-0">Gender</label>
-                <div class="col-md-8">
-
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                            <input
-                                type="radio"
-                                class="form-check-input"
-                                value="male"
-                                formControlName="gender"
-                                />
-                            Male
-                        </label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-
-                            <input
-                                type="radio"
-                                class="form-check-input"
-                                value="female"
-                                formControlName="gender"
-                                />
-                            Female
-
-                        </label>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-                <label for="company" class="col-md-2 col-form-label">Enter Your
-                    Company</label>
-                <div class="col-md-8">
-                    <input
-                        type="text"
-                        class="form-control"
-                        formControlName="company"
-                        />
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-                <label for="email" class="col-md-2 col-form-label">Enter Your
-                    Email</label>
-                <div class="col-md-8">
-                    <input
-                        type="text"
-                        class="form-control"
-                        formControlName="email"
-                        />
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-                <label for="confirmEmail" class="col-md-2 col-form-label">Confirm Email</label>
-                <div class="col-md-8">
-                    <input
-                        type="text"
-                        class="form-control"
-                        formControlName="email"
-                        />
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-                <label for="age" class="col-md-2 col-form-label">Enter Your
-                    Age</label>
-                <div class="col-md-8">
-                    <input
-                        type="text"
-                        class="form-control"
-                        formControlName="age"
-                        />
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-
-                <div class="offset-md-2 col-md-8">
-                   <button class="btn btn-primary mr-3"
-                   type="submit"
-                   [disabled] = "!registerForm.valid"
-                   >Save</button>
-
-                   <button class="btn btn-primary mr-3"
-                   type="button"
-                   (click)="testData()"
-                   >Test Data</button>
-                </div>
-            </div>
-
-        </form>
-    </div>
+          <button
+            class="btn btn-primary mr-3"
+            type="button"
+            (click)="testData()"
+          >
+            Test Data
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 <br />Dirty: {{ registerForm.dirty }} <br />Touched: {{ registerForm.touched }}
 <br />Valid: {{ registerForm.valid }} <br />Value:
