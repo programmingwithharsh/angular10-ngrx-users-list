@@ -13,6 +13,8 @@
             type="text"
             class="form-control"
             formControlName="username"
+            required
+            minlength="3"
             [ngClass]="{
               'is-invalid':
                 (registerForm.get('username').touched ||
