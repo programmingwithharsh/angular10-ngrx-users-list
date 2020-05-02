@@ -70,7 +70,6 @@
         </div>
       </div>
 
-      <div formGroupName="emailGroup">
       <div class="form-group row mb-2">
         <label for="email" class="col-md-2 col-form-label"
           >Enter Your Email</label
@@ -81,7 +80,7 @@
             class="form-control"
             formControlName="email"
             [ngClass]="{
-              'is-invalid':registerForm.get('emailGroup').errors ||
+              'is-invalid':
                 (registerForm.get('emailGroup.email').touched ||
                   registerForm.get('emailGroup.email').dirty) &&
                 !registerForm.get('emailGroup.email').valid
@@ -100,30 +99,6 @@
         </div>
       </div>
 
-      <div class="form-group row mb-2">
-        <label for="confirmEmail" class="col-md-2 col-form-label"
-          >Confirm Email</label
-        >
-        <div class="col-md-8">
-          <input type="email" class="form-control" formControlName="confirmEmail" [ngClass]="{
-            'is-invalid': registerForm.get('emailGroup').errors ||
-              (registerForm.get('emailGroup.confirmEmail').touched ||
-                registerForm.get('emailGroup.confirmEmail').dirty) &&
-              !registerForm.get('emailGroup.confirmEmail').valid
-          }"
-        />
-
-        <span class="invalid-feedback">
-          <span *ngIf="registerForm.get('emailGroup.confirmEmail').errors?.required">
-            Please confirm your email address.
-          </span>
-          <span *ngIf="registerForm.get('emailGroup').errors?.match">
-            The confirmation does not match the email address
-          </span>
-        </span>
-        </div>
-      </div>
-    </div>
 
       <div class="form-group row mb-2">
         <label for="age" class="col-md-2 col-form-label">Enter Your Age</label>
