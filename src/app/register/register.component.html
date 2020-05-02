@@ -81,17 +81,17 @@
             formControlName="email"
             [ngClass]="{
               'is-invalid':
-                (registerForm.get('emailGroup.email').touched ||
-                  registerForm.get('emailGroup.email').dirty) &&
-                !registerForm.get('emailGroup.email').valid
+                (registerForm.get('email').touched ||
+                  registerForm.get('email').dirty) &&
+                !registerForm.get('email').valid
             }"
           />
 
           <span class="invalid-feedback">
-            <span *ngIf="registerForm.get('emailGroup.email').errors?.required">
+            <span *ngIf="registerForm.get('email').errors?.required">
               Please enter email address
             </span>
-            <span *ngIf="registerForm.get('emailGroup.email').errors?.email">
+            <span *ngIf="registerForm.get('email').errors?.email">
               Please enter a valid email address
             </span>
           </span>
