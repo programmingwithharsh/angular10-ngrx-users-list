@@ -3,7 +3,7 @@
         User Registration Form
     </div>
     <div class="card-body">
-        <form #registerForm="ngForm" (ngSubmit)="save(registerForm)">
+        <form [formGroup]="registerForm" (ngSubmit)="save()">
 
             <div class="form-group row mb-2">
                 <label for="username" class="col-md-2 col-form-label">Enter Your
@@ -12,21 +12,19 @@
                     <input
                         type="text"
                         class="form-control"
-                        name="username"
-                        [(ngModel)]="register.username"
                         required
                         minlength="3"
-                        #usernameVar = "ngModel"
+                        formControlName="username"
                         [ngClass]="{'is-invalid':
-                            (usernameVar.touched || usernameVar.dirty) && !usernameVar.valid
+                            (registerForm.get('username').touched || registerForm.get('username').dirty) && !registerForm.get('username').valid
                         }"
                         />
 
                         <span class="invalid-feedback">
-                            <span *ngIf="usernameVar.errors?.required">
+                            <span *ngIf="registerForm.get('username').errors?.required">
                                     Please enter username
                             </span>
-                            <span *ngIf="usernameVar.errors?.minlength">
+                            <span *ngIf="registerForm.get('username').errors?.minlength">
                                 Username must be longer than 3 characters
                         </span>
                         </span>
@@ -42,9 +40,8 @@
                             <input
                                 type="radio"
                                 class="form-check-input"
-                                name="gender"
-                                [(ngModel)]="register.gender"
                                 value="male"
+                                formControlName="gender"
                                 />
                             Male
                         </label>
@@ -56,9 +53,8 @@
                             <input
                                 type="radio"
                                 class="form-check-input"
-                                name="gender"
-                                [(ngModel)]="register.gender"
                                 value="female"
+                                formControlName="gender"
                                 />
                             Female
 
@@ -75,9 +71,7 @@
                     <input
                         type="text"
                         class="form-control"
-                        name="company"
-                        id="company"
-                        [(ngModel)]="register.company"
+                        formControlName="company"
                         />
                 </div>
             </div>
@@ -89,8 +83,7 @@
                     <input
                         type="text"
                         class="form-control"
-                        name="email"
-                        [(ngModel)]="register.email"
+                        formControlName="email"
                         />
                 </div>
             </div>
@@ -102,8 +95,7 @@
                     <input
                         type="text"
                         class="form-control"
-                        name="age"
-                        [(ngModel)]="register.age"
+                        formControlName="age"
                         />
                 </div>
             </div>

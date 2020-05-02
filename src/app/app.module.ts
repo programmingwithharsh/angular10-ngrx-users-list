@@ -11,7 +11,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './user.effects';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersFilterPipe } from './users-filter.pipe';
 import { RegisterComponent } from './register/register.component';
 
@@ -23,7 +23,7 @@ import { RegisterComponent } from './register/register.component';
       strictStateImmutability: true,
       strictActionImmutability: true,
     }
-  }), !environment.production ? StoreDevtoolsModule.instrument() : [], EffectsModule.forRoot([UserEffects]), FormsModule],
+  }), !environment.production ? StoreDevtoolsModule.instrument() : [], EffectsModule.forRoot([UserEffects]), FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent], // default component
 })
