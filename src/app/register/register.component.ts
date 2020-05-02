@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
         gender: '',
         company: '',
         email: '',
+        confirmEmail: '',
         age: ''
       }
     );
@@ -34,6 +35,7 @@ export class RegisterComponent implements OnInit {
       username: 'Harsh',
       gender: 'male',
       email: 'harshtiwari343@gmail.com',
+      confirmEmail: 'harshtiwari343@gmail.com',
       age: '32'
     })
   }
